@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>  {%load static%}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+    <title>Welcome to Vishal's Project!</title>
+    
+<style>
+  .carousel-inner {
+    width: 100%;
+    height: 50vh;
+  }
+</style>
+   
+
+  </head>
+  <body style="background-color: rgb(230, 218, 218);">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-md">
+          <a class="navbar-brand" href="#">Welcome To Vishal's Django Projects</a>
+        </div>
+      </nav>
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/img/slider-landing-1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/img/slider-landing-2.jpg"" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/img/slider-landing-3.jpg"" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div><hr>
+    <div class="container">
+      <h3 style="text-align: center; text-shadow:0px 5px 5px black">Select any Projects From Below | It Will lead You To That Project</h3>
+    </div><hr>
+
+    
+    <div class="container my-2">
+
+
+      <div class="card text-dark bg-danger mb-3 mx-2 d-inline-block" style="max-width: 18rem;">
+        <div class="card-header">Moderator</div>
+        <div class="card-body">
+          <h5 class="card-title"><a class="text-dark" href="http://127.0.0.1:8000/admin">Admin Page</a></h5>
+          <p class="card-text">It is an Admin page where only the authenticated person can Visit </p>
+        </div>
+    </div>
+       
+        <div class="card text-dark bg-warning mb-3 mx-2 d-inline-block" style="max-width: 18rem;">
+            <div class="card-header">Project-1</div>
+            <div class="card-body">
+              <h5 class="card-title"><a class="text-dark" href="http://127.0.0.1:8000/store">Ecom</a></h5>
+              <p class="card-text">It is a E-commerce website with a clone near to the Ekart </p>
+            </div>
+        </div>
+
+        <div class="card text-dark bg-primary mb-3 mx-2 d-inline-block" style="max-width: 18rem;">
+            <div class="card-header">Project-2</div>
+            <div class="card-body">
+              <h5 class="card-title"><a class="text-dark" href="http://127.0.0.1:8000/blog">The VRS Blogs</a></h5>
+              <p class="card-text">It is a Blog website where you can share different blogs and posts </p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+ 
+  </body>
+</html>

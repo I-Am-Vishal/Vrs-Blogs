@@ -1,0 +1,57 @@
+{% extends 'blog/blog-base.html' %}
+<!-- -------------------------------------------------------------------------- -->
+{% block title %} Blog|Contact ! {% endblock %}
+<!-- -------------------------------------------------------------------------- -->
+{% block contactactive %}active{% endblock contactactive %}
+<!-- -------------------------------------------------------------------------- -->
+{% load static %}
+<!-- -------------------------------------------------------------------------- -->
+{% block header %}  {% endblock %}
+<!-- -------------------------------------------------------------------------- -->
+
+{% block body %}
+{% if user.is_authenticated %}
+
+<div class="container" style="min-height: 100vh;">
+                    <h3 class = "my-3" style="text-align: center;text-shadow:0px 6px 6px black">Happy to Help !</h3>
+    <div class="row my-3 mx-auto">
+        <div class="col-lg-6 my-2 mx-auto shadow-lg " style=" min-height:400px;">
+            <div class="col my-4 mx-auto">
+                
+                <form action="" method="post">
+                    {% csrf_token %}
+                <div class="input-group input-group mb-3 my-2 mx-auto">
+                    <span class="input-group-text">First and Last name</span>
+                    <input type="text" aria-label="First name" class="form-control" name="fname" >
+                    <input type="text" aria-label="Last name" class="form-control" name="lname" >
+                </div>
+                    <div class="input-group input-group mb-3 my-2 mx-auto">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Enter Your Email</span>
+                    <input type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="mail" >
+                </div>
+                <div class="input-group input-group mb-3 my-2 mx-auto">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">Phone number</span>
+                    <input type="tel" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" name="phone" >
+                </div>
+                <div class="mb-3 my-2 mx-auto">
+                    <label for="exampleFormControlTextarea1" class="form-label"><b>How can we help you !</b></label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="query" ></textarea>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+                    <button class="btn btn-primary" type="submit" value="submit" style="box-shadow: 0px 5px 5px black;">Send</button>
+                  </div>
+                </form>
+                <div><h5 style="text-align: center;">{% for message in messages %}{{message}}{% endfor %}</h5></div>
+
+            </div>    
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <h1 style="text-align: center;text-shadow:0px 5px 5px black">Please Login to View the Contacts Page</h1>
+  </div>
+{% endif %}
+{% endblock %}
+
+<!-- -------------------------------------------------------------------------- -->

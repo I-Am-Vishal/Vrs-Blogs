@@ -1,0 +1,18 @@
+{% extends 'blog/blog-base.html' %}
+
+{% block title %} Blog|Delete ! {% endblock %}
+
+{% load static %}
+
+{% block body %}
+<div class="container"style="min-height: 100vh;" >
+<a href="{% url 'Myblogs' %}">
+    <button class="btn me-4 bg-danger my-2" type="button" style="color: white; box-shadow: 0px 5px 5px black;"> Change your mind ?</button></a>
+<div class="container mx-2 shadow">
+    <h1 style="text-align: center;">{{blog.title}} </h1>
+    <h5 style="text-align: center;">By - {{blog.author.first_name}}</h5>  
+</div>
+<h5> Are you sure you want to delete this ? </h5>
+<a class="btn btn-outline-primary btn-sm text-decoration-none my-2" href="{% url 'deletepost' blog.slug %}">Confirm Delete</a>
+</div>
+{% endblock %}

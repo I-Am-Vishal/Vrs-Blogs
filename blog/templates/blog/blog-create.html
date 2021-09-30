@@ -1,0 +1,60 @@
+{% extends 'blog/blog-base.html' %}
+<!-- -------------------------------------------------------------------------- -->
+{% block title %} Blog|Create blog ! {% endblock %}
+<!-- -------------------------------------------------------------------------- -->
+{% block createactive %}active{% endblock createactive %}
+<!-- -------------------------------------------------------------------------- -->
+{% load static %}
+<!-- -------------------------------------------------------------------------- -->
+{% block header %} {% endblock %}
+<!-- -------------------------------------------------------------------------- -->
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+<div class="container-fluid" style="min-height: 100vh;background-color:rgb(219, 212, 212)">
+
+    <h3 style="text-align: center; text-shadow:0px 5px 5px black">Create your blog below</h3>
+    <hr>
+    <div>
+        <h5 style="text-align: center;">{% for message in messages %}{{message}}{% endfor %}</h5>
+    </div>
+    <h6 style="text-shadow:0px 2px 5px black">Author - {{user.first_name}}</h6>
+    <form action="" method="post">
+        {% csrf_token %}
+       
+        <div class="my-3">
+            <label for="exampleInputEmail1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="title" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Enter a title for blog</div>
+        </div>
+
+        <div class="my-3">
+            <label for="exampleInputEmail1" class="form-label">Short description</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="Descr" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Enter a short description for blog</div>
+        </div>
+
+            <div class="my-3"></div>
+            <label for="exampleInputEmail1" class="form-label">Enter the content here ...</label>
+            <textarea id="mytextarea" name="cont"></textarea>
+ 
+</div>
+
+        <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+        <button class="btn btn-danger" type="submit" value="submit" style="box-shadow: 0px 5px 5px black;">SubmitPost</button>
+        </div>
+
+</form>
+
+</div>
+
+{% else %}
+
+<div class="container">
+    <h1 style="text-align: center;text-shadow:0px 5px 5px black">Please Login to write the blog</h1>
+</div>
+
+{% endif %}
+{% endblock body %}

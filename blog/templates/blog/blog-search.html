@@ -1,0 +1,33 @@
+{% extends 'blog/blog-base.html' %}
+
+{% block title %} Blog|Search ! {% endblock %}
+
+
+{% block body %}
+
+<div class="container" style="min-height: 100vh;">
+    <h1>Search results : </h1>
+
+
+
+            {% for blog in blogs %}
+        
+            <div class="d-flex shadow-lg py-5">
+                
+                <div class="flex-grow-1 ms-3"><h6 style="text-align: end;">Author : {{blog.author.first_name}}</h6>
+                    <h6 style="text-align: end;">Posted on : {{blog.created_at}}</h6>
+                    
+                    <h4 style="text-shadow: 0px 0px 2px black;"><a class="text-dark text-decoration-none"
+                            href="http://127.0.0.1:8000/blog/blogpost/{{blog.slug}}">{{blog.title}}</a>
+                    </h4>
+                    <div class="only-show-big py-2">{{blog.description}}...</div>
+                    <a class="btn btn-outline-primary btn-sm text-decoration-none my-2"
+                            href="http://127.0.0.1:8000/blog/blogpost/{{blog.slug}}" role="button">Read
+                            more...{{blog.title|slice:":0" }}</a>
+                </div>
+            </div>
+            <hr><br>
+            
+            {% endfor %}
+        </div>
+            {% endblock body %}

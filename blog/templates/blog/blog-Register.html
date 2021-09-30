@@ -1,0 +1,74 @@
+{% extends 'blog/blog-base.html' %}
+
+{% block title %} Blog|Register ! {% endblock %}
+
+{% load static %}
+
+{% block header %} 
+
+<style>
+    
+    .row{
+        justify-content: center !important;
+    }
+    body{
+      background-size: cover; 
+      background-image: url('/static/img/slider-landing-3.jpg');
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+<a href="{% url 'login-page' %}" >
+  <button class="btn me-4 bg-danger mt-2" type="button" style="color: white; box-shadow: 0px 5px 5px black;">Back to login page</button></a>
+<div class="container-fluid" id="cont-2">
+    <div class="row justify-content: center mt-4">
+        <div class="col-lg-6">
+         
+
+          <h4 style="text-align: center; box-shadow: 0px 5px 5px black;background-color:blue ;margin-bottom:10px; color:white;border-radius:10px;padding:5px 0px;">Please Fill this form</h4>
+
+            <form action="" method="post">
+              {% csrf_token %}
+              <div class="form-floating mb-2 mt-2">
+                <input type="text" class="form-control" name="first_name" id="floatingInput" placeholder="First Name" required>
+                <label for="floatingInput">First name</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="last_name" id="floatingInput" placeholder="Last Name" required>
+                <label for="floatingInput">Last name</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="text" class="form-control" name="username" id="floatingInput" placeholder="Username" required>
+                <label for="floatingInput">Username</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com" required>
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="password" class="form-control" name="password1" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+              </div>
+              <div class="form-floating mb-2">
+                <input type="password" class="form-control" name="password2" id="floatingPassword" placeholder="Re-Enter Password" required>
+                <label for="floatingPassword">Re-Enter Password</label>
+              </div>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="terms_conditions" required>
+                <label class="form-check-label" for="flexSwitchCheckDefault" style="color: white;">By Clicking Create an account you agree to our <a href="#">Terms & Conditions</a> <br> and that you have read our 
+                    <a href="#">data-policy</a> Including our <a href="#">cookie</a> use.</label>
+              </div>
+              <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+                <button class="btn btn-primary" type="submit" value="submit" style="box-shadow: 0px 5px 5px black;">Click to Register</button>
+              </div>
+            </form>
+            <div><h5 style="text-align: center;">{% for message in messages %}{{message}}{% endfor %}</h5></div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

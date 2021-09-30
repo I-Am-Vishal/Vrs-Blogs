@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  {% block header %} {% endblock %}
+
+  <title> {% block title %} {% endblock %} </title>
+  <script src="https://cdn.tiny.cloud/1/pm48bejarxl2k36trauhvd6gqey46y3w14vjfeva62z8gic8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+      tinymce.init({
+        selector: '#mytextarea',
+      });
+    </script>
+
+
+</head>
+
+<!-- ------------------------------------------------------------------------------------------------------- -->
+
+<body>
+
+  {% if user.is_authenticated %}
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow">
+    <div class="container-fluid my-2">
+      <a class="navbar-brand" href="#">The VRS Blogs</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item ms-3">
+            <a class="nav-link {% block homeactive %}{% endblock homeactive %}" aria-current="page"
+              href="{% url 'Home-page' %}">Home</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="nav-link {% block blogactive %}{% endblock blogactive %}" href="{% url 'blog' %}">All Blogs</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="nav-link {% block selfactive %}{% endblock selfactive %}"
+              href="{% url 'Myblogs' %}">MyBlogs</a>
+          </li>
+          <li class="nav-item ms-3">
+            <a class="nav-link {% block createactive %}{% endblock createactive %}"
+              href="{% url 'create' %}">Create Blog</a>
+          </li>
+          
+          <li class="nav-item ms-3 me-3">
+            <a class="nav-link {% block contactactive %}{% endblock contactactive %}"
+              href="{% url 'contact' %}">Contact Us</a>
+          </li>
+          
+          <li class="nav-item ms-3">
+            <h6 style="color: white; margin-top:10px;">Welcome ! {{user.first_name}}</h6>
+          </li>
+          <li>
+            <a href="{% url 'sign-out' %}">
+              <button class="btn btn-sm ms-4 mt-1 bg-danger" type="button"
+                style="color: white; box-shadow: 0px 5px 5px black;">Logout</button>
+            </a>
+          </li>
+        </ul>
+        <form class="d-flex" action="{% url 'search' %}"" method="get">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+ 
+
+  {% else %}
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow">
+    <div class="container-fluid my-2">
+      <a class="navbar-brand" href="#">The VRS Blogs</a>
+    </div>
+  </nav>
+
+  {% endif %}
+<!-- ------------------------------------------------------------------------------------------------------------  -->
+
+  {% block body %}
+
+  {% endblock body %}
+
+<!-- ------------------------------------------------------------------------------------------------------------  -->
+
+  <footer class="text-center py-3 text-light bg-black" id='footer'>Copyright &copy; The VRS Blogs.com</footer>
+
+<!-- ------------------------------------------------------------------------------------------------------------  -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- ------------------------------------------------------------------------------------------------------------  -->

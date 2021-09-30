@@ -1,0 +1,28 @@
+{% extends 'blog/blog-base.html' %}
+
+{% block title %} Blog|posts ! {% endblock %}
+
+{% load static %}
+
+{% block body %}
+
+<a href="{% url 'Myblogs' %}">
+    <button class="btn me-4 bg-danger my-2" type="button" style="color: white; box-shadow: 0px 5px 5px black;">Back to
+    Blogs</button></a>
+
+<h5>Edit your Post below ...</h5>
+<div class="container my-5">
+<div class="form-group">
+<form method="POST">
+    
+        {% csrf_token %}
+
+       {{ form.as_p}} 
+       
+<button class="btn me-4 bg-danger my-2" type="submit" value = "Update" style="color: white; box-shadow: 0px 5px 5px black;">Update</button></a>
+ </form>
+ 
+</div>
+</div>
+
+{% endblock body %}
